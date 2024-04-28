@@ -1,0 +1,251 @@
+event ScopeRemoval
+{
+Animate HudScope Position "9999 9999" Linear 0.0 0.0
+}
+
+event DamagedPlayer
+{
+RunEvent ScopeRemoval 0.0
+Animate Hand Alpha "255" Linear 0.0 0.0
+Animate Hand Alpha "0" Linear 1.4 0.0
+
+
+}
+
+
+//=================================================================================================================================
+
+event HudHealthBonusPulse
+{
+	Animate	PlayerStatusHealthValueS 	fgcolor		"255 255 255 255"				Linear 0.0 0.1
+	Animate	PlayerStatusHealthValueS 	fgcolor		"0 0 0 255"				Linear 0.2 0.1
+	Animate	PlayerStatusHealthValue 	fgcolor		"255 255 255 255"				Linear 0.2 0.1
+	Animate	PlayerStatusHealthValue	fgcolor		"0 0 0 255"				Linear 0.0 0.1
+	
+	
+	RunEvent HudHealthBonusPulseLoop		0.4
+}
+
+event HudHealthBonusPulseLoop
+{
+	RunEvent HudHealthBonusPulse 			0.0
+}
+
+event HudHealthBonusPulseStop
+{
+	StopEvent HudHealthBonusPulse 			0.0
+	StopEvent HudHealthBonusPulseLoop 		0.0
+	Animate	PlayerStatusHealthValueS 	fgcolor		"0 0 0 255"				Linear 0.0 0.0
+	Animate	PlayerStatusHealthValue 	fgcolor		"255 255 255 255"				Linear 0.0 0.0
+}
+
+//=================================================================================================================================
+
+event HudHealthDyingPulse
+{
+	Animate	PlayerStatusHealthValueS 	fgcolor		"255 255 255 255"				Linear 0.0 0.0
+	Animate	PlayerStatusHealthValue 	fgcolor		"0 0 0 255"				Linear 0.0 0.0
+	
+
+	
+	RunEvent HudHealthDyingPulseLoop		0.25
+}
+
+event HudHealthDyingPulseLoop
+{
+	RunEvent HudHealthDyingPulse 			0.0
+}
+
+event HudHealthDyingPulseStop
+{
+
+	StopEvent HudHealthDyingPulse 			0.0
+	StopEvent HudHealthDyingPulseLoop 		0.0
+
+	Animate	PlayerStatusHealthValueS 	fgcolor		"0 0 0 255"				Linear 0.0 0.0
+	Animate	PlayerStatusHealthValue  fgcolor		"255 255 255 255"				Linear 0.0 0.0
+
+}
+
+//=================================================================================================================================
+
+event HudLowAmmoPulse
+{
+	Animate	AmmoInClipShadow 	fgcolor		"255 255 255 255"				Linear 0.0 0.0
+	Animate	AmmoInClip 	fgcolor		"0 0 0 255"				Linear 0.0 0.0
+	Animate	AmmoNoClipShadow 	fgcolor		"255 255 255 255"				Linear 0.0 0.0
+	Animate	AmmoNoClip 	fgcolor		"0 0 0 255"				Linear 0.0 0.0
+	Animate	AmmoInReserveShadow 	fgcolor		"255 255 255 255"				Linear 0.0 0.0
+	Animate	AmmoInReserve 	fgcolor		"0 0 0 255"				Linear 0.0 0.0
+	
+	RunEvent HudLowAmmoPulseLoop			0.25
+}
+
+event HudLowAmmoPulseLoop
+{
+	RunEvent HudLowAmmoPulse 				0.0
+}
+
+event HudLowAmmoPulseStop
+{
+	StopEvent HudLowAmmoPulse 				0.0
+	StopEvent HudLowAmmoPulseLoop 			0.0
+	
+	Animate	AmmoInClipShadow 	fgcolor	        "0 0 0 255"			Linear 0.0 0.0
+	Animate	AmmoInClip 	fgcolor		"255 255 255 255"				Linear 0.0 0.0
+	Animate	AmmoNoClipShadow 	fgcolor		"0 0 0 255"				Linear 0.0 0.0
+	Animate	AmmoNoClip 	fgcolor		"255 255 255 255"				Linear 0.0 0.0
+	Animate	AmmoInReserveShadow 	fgcolor		"0 0 0 255"				Linear 0.0 0.0
+	Animate	AmmoInReserve 	fgcolor		"255 255 255 255"				Linear 0.0 0.0
+}
+
+//=================================================================================================================================
+
+event HudMedicCharged
+{
+	Animate	chargelabelS 	fgcolor		"255 255 255 255"				Linear 0.0 0.1
+	Animate	chargelabelS 	fgcolor		"0 0 0 255"				Linear 0.2 0.1
+	Animate	chargelabel 	fgcolor		"255 255 255 255"				Linear 0.2 0.1
+	Animate	chargelabel 	fgcolor		"0 0 0 255"				Linear 0.0 0.1
+
+	RunEvent HudMedicChargedLoop			0.4
+}
+
+event HudMedicChargedLoop
+{
+	RunEvent HudMedicCharged 				0.0
+}
+
+event HudMedicChargedStop
+{
+	StopEvent HudMedicCharged 				0.0
+	StopEvent HudMedicChargedLoop 			0.0
+	
+	Animate	chargelabelS 	fgcolor		"0 0 0 255"				Linear 0.0 0.0
+	Animate	chargelabel 	fgcolor		"255 255 255 255"				Linear 0.0 0.0
+}
+
+//=================================================================================================================================
+
+event FlagOutlineHide
+{
+	Animate OutlineImage					Alpha		"0"					Linear 0.0 0.1
+}
+
+event FlagOutline
+{
+	RunEvent FlagOutlineHide 				0.0
+	Animate OutlineImage					Alpha		"0"					Linear 0.1 0.2
+	
+	Animate OutlineImage					Position	"9999 9999"			Linear 0.1 0.2
+	Animate OutlineImage					Size		"0 0"				Linear 0.1 0.2
+
+	Animate OutlineImage					Position	"9999 9999"			Linear 0.7 0.2
+	Animate OutlineImage					Size		"0 0"				Linear 0.7 0.2
+	
+	Animate OutlineImage					Alpha		"0"					Linear 0.9 0.1
+}
+
+//=================================================================================================================================
+
+event HudSpyDisguiseChanged
+{
+	Animate PlayerStatusSpyOutlineImage		Alpha		"255"				Linear 0.0 0.2
+	
+	Animate PlayerStatusSpyOutlineImage		Position	"c-200 c-200"		Linear 0.0 0.2
+	
+	Animate PlayerStatusSpyOutlineImage		Size		"400 400"			Linear 0.0 0.2
+
+	RunEvent HudSpyDisguiseHide	0.7
+
+}
+
+event HudSpyDisguiseHide
+{
+	Animate PlayerStatusSpyOutlineImage		Position	"3 413"				Linear 0.0 0.2
+	
+	Animate PlayerStatusSpyOutlineImage		Size		"55 55"				Linear 0.0 0.2
+	
+	Animate PlayerStatusSpyOutlineImage		Alpha		"0"					Linear 0.2 0.1
+}
+
+event HudSpyDisguiseFadeIn
+{
+	Animate PlayerStatusSpyImage			Alpha		"255"				Linear 0.9 0.1
+	
+	Animate PlayerStatusClassImage			Alpha		"255"				Linear 0.0 0.0
+
+Animate eye Alpha "255" Linear 0.0 0.0
+Animate eye Alpha "0" Linear 1.1 0.0
+}
+
+event HudSpyDisguiseFadeOut
+{
+	Animate PlayerStatusSpyImage			Alpha		"0"					Linear 0.9 0.1	
+
+	Animate PlayerStatusClassImage			Alpha		"0"					Linear 0.0 0.0
+}
+
+//=================================================================================================================================
+
+event OvertimeShow
+{
+	Animate OvertimeLabel					Alpha		"255"				Linear 0.0 0.1	
+	Animate OvertimeBG						Alpha		"255"				Linear 0.0 0.1	
+}
+
+event HudSnapShotReminderIn
+{
+	Animate ScreenshotPanel					Position	"9999 9999"			Linear 0.0 0.001
+	Animate ScreenshotPanel					Position	"9999 9999"			Spline 0.001 0.2
+}
+
+event HudReplayReminderIn
+{
+	Animate ReplayReminder					Position	"9999 9999"			Linear 0.0 0.001
+	Animate ReplayReminder					Position	"9999 9999"			Spline 0.001 0.2
+}
+
+event HudReplayReminderIn2
+{
+	Animate ReplayReminder					Position	"9999 9999"			Linear 0.0 0.001
+	Animate ReplayReminder					Position	"9999 9999"			Spline 0.001 0.2
+}
+
+event HudReplayTipIn
+{
+	Animate ReplayTip						Position	"9999 9999"			Linear 0.0 0.001
+	Animate ReplayTip						Position	"9999 9999"			Spline 0.001 0.1
+}
+
+event HudReplayTipOut
+{
+	Animate ReplayTip						Position	"9999 9999"			Linear 0.0 0.001
+	Animate ReplayTip						Position	"9999 9999"			Spline 0.001 0.1
+}
+
+event HudTournamentSetupPanelOpen
+{
+	Animate HudTournamentSetup				Position	"0 -70"				Linear 0.0 0.001
+	Animate HudTournamentSetup				Position	"0 70"				Spline 0.001 0.2
+}
+
+event HudTournamentSetupPanelClose
+{
+	Animate HudTournamentSetup				Position	"0 70"				Linear 0.0 0.001
+	Animate HudTournamentSetup				Position	"0 -70"				Spline 0.001 0.2
+}
+
+//=================================================================================================================================
+
+event CompetitiveGame_LowerChatWindow
+{
+}
+event CompetitiveGame_RestoreChatWindow
+{
+}
+event HudTournament_MoveChatWindow
+{
+}
+
+//=================================================================================================================================
