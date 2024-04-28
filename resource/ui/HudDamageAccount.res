@@ -10,7 +10,7 @@
 		"PositiveColor"			"0 255 0 255"
 		"NegativeColor"			"255 150 0 255"
 		"delta_lifetime"		"1.5"
-		"delta_item_font"		"roboto24ds"
-		"delta_item_font_big"		"roboto24ds"
+		"delta_item_font"		"damage"
+		"delta_item_font_big"		"damage"
 	}
 }

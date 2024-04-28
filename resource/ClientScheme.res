@@ -709,6 +709,16 @@ Scheme
 				"antialias"	"1"
 			}
 		}
+		"damage"
+		{
+			"1"
+			{
+				"name"		"Tahoma Bold1"
+				"tall"		"24"
+				"antialias"	"1"
+"dropshadow" "1"
+			}
+		}
 		"roboto16ds"
 		{
 			"1"
